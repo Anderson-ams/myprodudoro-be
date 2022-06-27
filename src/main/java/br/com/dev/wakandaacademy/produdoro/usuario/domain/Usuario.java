@@ -8,6 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import br.com.dev.wakandaacademy.produdoro.usuario.application.api.UsuarioNovoRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,4 +33,14 @@ public class Usuario {
 	private StatusUsuario status = StatusUsuario.FOCO;
 	@Builder.Default
 	private Integer quantidadePomodoroPausaCurta = 0;
+	
+	public Usuario(UsuarioNovoRequest usuarioNovo) {
+		this.email = usuarioNovo.getEmail();
+		this.configuracao = ConfiguracaoUsuario.builder()
+				.tempoMinutosFoco(25)
+				.tempoMinutosPausaCurta(5)
+				.tempoMinutosPausaLonga(15)
+				.repeticoesParaPausaLonga(3)
+				.build();
+	}
 }
