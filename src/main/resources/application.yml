@@ -8,3 +8,7 @@ spring:
       authentication-database: admin
       uri: ${MONGO_DB_URI:mongodb+srv://AndersonM:pjB7DKzd6YB22TU@cluster0.squbxys.mongodb.net/myFirstDatabase?retryWrites=true&w=majority}
       auto-index-creation: true
+      
+springdoc:
+  swagger-ui:
+    path: /swagger     
